@@ -19,6 +19,7 @@ import { buildRetailEffectTooltip } from "Retail/Engine/EffectFormulas/Generic/T
 import { getAllyStatsValue } from "General/Engine/ItemUtilities";
 // 
 import { CONSTANTS } from "General/Engine/CONSTANTS";
+import { itemLevels as itemLevelsDB } from "Databases/ItemLevelsDB";
 import EmbellishmentDeepDive from "General/Modules/EmbellishmentAnalysis/EmbellishmentDeepDive";
 import InformationBox from "General/Modules/GeneralComponents/InformationBox.tsx";
 import { trackPageView } from "Analytics";
@@ -199,7 +200,7 @@ export default function EmbellishmentAnalysis(props) {
 
 
   let history = useHistory();
-  const itemLevels = [259, 272, 285];
+  const itemLevels = itemLevelsDB.crafted;
 
   const playerSpec = props.player !== null ? props.player.getSpec() : "Unknown";
   const db = embellishmentDB.filter((embel) => {

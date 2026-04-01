@@ -1,8 +1,6 @@
-
-
 export const CONSTANTS = {
-    dpsValue: 1, // In dungeon settings 
-    allyStatWeight: 0.43, // 
+    dpsValue: 1, // In dungeon settings
+    allyStatWeight: 0.43, //
     allyDPSPerPoint: 0.43 / 2000 * 30000, // Unused
     difficulties: {
         "LFR": 0,
@@ -31,13 +29,27 @@ export const CONSTANTS = {
     fullItemLevels: [200, 203, 206, 210, 214, 217, 220, 224, 227, 230, 233, 237, 240, 243, 246, 250, 253, 256, 259, 263, 266, 269, 272, 276, 279, 282, 285, 289],
     itemLevelCaps: { Explorer: 224, Adventurer: 237, Veteran: 250, Champion: 263, Hero: 276, Myth: 289, "Runed Crafted": 272, "Gilded Crafted": 285 },
     seasonID: 34,
+
+    // Trinket chart item levels. Update these each expansion/season.
+    // trinketItemLevels: the ilvls at which trinkets are scored for the stacked bar chart.
+    // trinketSliderMarks: the major tier breakpoints shown on the level cap slider (label = ilvl string).
+    // classicTrinketItemLevels: equivalent list for the Classic game type.
+    trinketItemLevels: [233, 237, 243, 250, 256, 263, 272, 276, 285, 289],
+    trinketSliderMarks: [
+      { value: 0, label: "237" },
+      { value: 1, label: "250" },
+      { value: 2, label: "263" },
+      { value: 3, label: "276" },
+      { value: 4, label: "289" },
+    ],
+    classicTrinketItemLevels: [458, 463, 476, 483, 484, 489, 496, 502, 509, 510, 517, 522, 528, 535, 541],
     tierNames: {
-      "Preservation Evoker": "of the Black Talon", 
-      "Holy Paladin": "Luminant Verdict's", 
-      "Holy Priest": "Blind Oath's", 
-      "Discipline Priest": "Blind Oath's", 
-      "Restoration Shaman": "of the Primal Core", 
-      "Mistweaver Monk": "of Ra-den's Chosen", 
+      "Preservation Evoker": "of the Black Talon",
+      "Holy Paladin": "Luminant Verdict's",
+      "Holy Priest": "Blind Oath's",
+      "Discipline Priest": "Blind Oath's",
+      "Restoration Shaman": "of the Primal Core",
+      "Mistweaver Monk": "of Ra-den's Chosen",
       "Restoration Druid": "of the Luminous Bloom"
     },
 

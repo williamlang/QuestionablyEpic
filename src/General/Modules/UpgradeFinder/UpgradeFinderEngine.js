@@ -148,7 +148,7 @@ export function getSetItemLevel(itemSource, playerSettings, raidIndex = 0, itemI
 
   // World Bosses
   else if (instanceID === 1312) {
-    itemLevel = 250;
+    itemLevel = CONSTANTS.itemLevelCaps.Adventurer;
   }
 
   else if (instanceID === -1) {
@@ -161,7 +161,7 @@ export function getSetItemLevel(itemSource, playerSettings, raidIndex = 0, itemI
   }
   else if (instanceID === -69) {
     // Delves
-    itemLevel = 276 //itemLevels.crafted[playerSettings.craftedLevel]; // Temporary. Will need its own panel.
+    itemLevel = CONSTANTS.itemLevelCaps.Hero; //itemLevels.crafted[playerSettings.craftedLevel]; // Temporary. Will need its own panel.
   }
   //else if (instanceID === 1209) itemLevel = 441; // Dawn of the Infinite, upgraded one time.
   else if (instanceID === -30) itemLevel = 359; // Honor. Currently unused.

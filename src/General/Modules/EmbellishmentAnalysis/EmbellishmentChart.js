@@ -1,4 +1,5 @@
 import React, { PureComponent } from "react";
+import { itemLevels } from "Databases/ItemLevelsDB";
 import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer, Legend, CartesianGrid, Tooltip } from "recharts";
 // import chroma from "chroma-js";
 import { getGemIcon, getEmbellishmentIcon, getTranslatedEmbellishment } from "General/Engine/ItemUtilities";
@@ -217,7 +218,7 @@ export default class EmbelChart extends PureComponent {
           <Legend verticalAlign="top" />
           <CartesianGrid vertical={true} horizontal={false} />
           <YAxis type="category" dataKey="name" stroke="#f5f5f5" interval={0} tick={CustomizedYAxisTick} />
-          {[259, 272, 285].map((key, i) => (
+          {itemLevels.crafted.map((key, i) => (
             <Bar key={"bar" + i} dataKey={key} fill={barColours[i]} stackId="a" />
           ))}
 

@@ -2,6 +2,7 @@ import React from "react";
 import { Paper, Typography, Grid, Tooltip, Button } from "@mui/material";
 import Item from "../../Items/Item";
 import { getItemAllocations, calcStatsAtLevel, getItemProp, scoreTrinket, scoreItem, getItemDB } from "../../Engine/ItemUtilities";
+import { CONSTANTS } from "../../Engine/CONSTANTS";
 import VerticalChart from "./Charts/VerticalChart";
 import BCChart from "./Charts/ClassicTrinketChart";
 import { useSelector } from "react-redux";
@@ -56,7 +57,7 @@ const handleDownload = () => {
 };
 
 export const sourceHandler = (array, sources, playerSpec) => {
-  const raidSources = [1314, 1308, 1307];
+  const raidSources = CONSTANTS.currentRaidIDs;
   const dungeonSources = [-1];
   const delveSources = [-69];
   const otherSources = [1192, 1205, -18, -17, -85, -4];
@@ -135,15 +136,9 @@ export default function TrinketChart({ player }) {
       setTimeout(() => setCopied(false), 2000);
     }
   };
-  const [levelCap, setLevelCap] = React.useState(289);
 
-  const maxLevelMarks = [
-    { value: 0, label: "237" },
-    { value: 1, label: "250" },
-    { value: 2, label: "263" },
-    { value: 3, label: "276" },
-    { value: 4, label: "289" },
-  ];
+  const maxLevelMarks = CONSTANTS.trinketSliderMarks;
+  const [levelCap, setLevelCap] = React.useState(parseInt(maxLevelMarks.at(-1).label));
 
   const changeLevelCap = (event, newValue) => {
     setLevelCap(parseInt(maxLevelMarks[newValue].label));
@@ -153,10 +148,7 @@ export default function TrinketChart({ player }) {
     if (newSources.length) setSources(newSources);
   };
 
-  const allItemLevels =
-    gameType === "Retail"
-      ? [233, 237, 243, 250, 256, 263, 272, 276, 285, 289]
-      : [458, 463, 476, 483, 484, 489, 496, 502, 509, 510, 517, 522, 528, 535, 541];
+  const allItemLevels = gameType === "Retail" ? CONSTANTS.trinketItemLevels : CONSTANTS.classicTrinketItemLevels;
 
   const itemLevels = allItemLevels.filter((level) => level <= levelCap || gameType === "Classic");
 
